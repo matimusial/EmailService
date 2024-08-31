@@ -1,4 +1,4 @@
-# Employee Feedback System
+# Employee Feedback System - Email Service
 
 This project is a web-based Employee Feedback System, designed to facilitate efficient collection and analysis of employee opinions within an organization. The application provides a basic administrative panel for managing the system and was developed during an internship at BTC company using Java Spring and Svelte.
 
