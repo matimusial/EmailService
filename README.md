@@ -1,12 +1,23 @@
 # Employee Feedback System - Email Service
 
-This project is a web-based Employee Feedback System, designed to facilitate efficient collection and analysis of employee opinions within an organization. The application provides a basic administrative panel for managing the system and was developed during an internship at BTC company using Java Spring and Svelte.
+This Polish web-based system facilitates the collection and analysis of employee opinions within an organization. Developed during an internship at BTC company using Java Spring and Svelte, it includes an admin panel for managing surveys and helpdesks.
+
+Employees receive a unique feedback form link via email, ensuring easy and direct access.
 
 ## Features
 
+<div style="display: flex; justify-content: space-around; align-items: center;">
+    <img src="images/adding_questions.png" alt="Questions" width="49%">
+    <img src="images/ehelpdesks.png" alt="EHelpdesks" width="49%">
+</div>
+
+<img src="images/dashboard.png" alt="Dashboard" style="display: block; margin: 20px auto;">
+
+<img src="images/form.png" alt="Form" style="display: block; margin: 20px auto;">
+
 ### User Interface
 - **Java Spring Backend**: Provides robust API endpoints for data processing and interaction with the database.
-- **Svelte Frontend**: A modern and fast user interface built with Svelte, ensuring a smooth user experience.
+- **Svelte Frontend**: Fast user interface built with Svelte, ensuring a smooth user experience.
 
 ### System Workflow
 1. **API Requests**: The system sends an API request to a designated endpoint containing data formatted in JSON.
@@ -28,26 +39,29 @@ To run this project locally, follow these steps:
     - Recommended IDE: IntelliJ IDEA.
     - Required Java Version: Java 17 JDK.
 
-2. **Backend Setup**:
-    - Open the project in IntelliJ IDEA.
+2. **Database Configuration**:
+    - Create a PostgreSQL database named `emailService`.
+
+3. **Backend Setup**:
     - Configure `application.properties` and run a project.
 
-3. **Frontend Setup**:
-    - Ensure Node.js and npm are installed on your system.
-    - Navigate to the frontend directory.
-    - Run the `run-svelte.bat` file to start the Svelte application. This script will handle the installation of dependencies and launch the development server, ensure to set a backend url in `store.js`.
-
-4. **Database Configuration**:
-    - The application uses a PostgreSQL database named `emailService`.
-    - Ensure that PostgreSQL is installed and running on your machine.
-    - Configure the database connection details in the `application.properties` file.
+4. **Frontend Setup**:
+    - Ensure Node.js is installed.
+    - Navigate to the `svelte-app` directory.
+    - Ensure to set a backend url in `store.js`.
+    - Run the `npm install` then `npm run dev`.
 
 ## Usage
 
-- **Administrator**:
-    - Log in using your admin credentials.
-    - Navigate to the admin panel to manage helpdesks, create surveys, and view employee feedback and statistics.
+- After launching the website:
+    1. Open your browser and go to `/admin` (e.g., `http://localhost:5001/admin`).
+    2. **Register** using your `@btc.com.pl` email (for the presentation, registration from any domain is enabled).
+        - **Note**: To restrict registration to `@btc.com.pl`, uncomment the lines in the `adminRegistrationController`.
+    3. Create survey questions.
+    4. Set up a helpdesk.
 
-- **Employee**:
-    - Register with your `@btc.com.pl` email.
-    - Log in to provide feedback using the links sent to your email.
+## API Usage
+
+- **Important**: During a POST API request for submitting a form:
+    - The **set version** and the **helpdesk ID** must match the ones added in the admin panel.
+    - The required **body** for sending the form can be found in the admin panel under the **INFO** tab after logging in.

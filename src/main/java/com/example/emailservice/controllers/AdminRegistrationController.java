@@ -120,10 +120,10 @@ public class AdminRegistrationController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
-        if (!AdminRegistrationService.isEmailFromAllowedDomain(admin.getEmail())) {
-            response.put("email", "Email musi pochodzić z domeny @btc.com.pl");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
-        }
+//        if (!AdminRegistrationService.isEmailFromAllowedDomain(admin.getEmail())) {
+//            response.put("email", "Email musi pochodzić z domeny @btc.com.pl");
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
+//        }
 
         if (admin.getUsername().equals("anonymousUser")){
             response.put("username", "Ta nazwa nie jest mozliwa");
